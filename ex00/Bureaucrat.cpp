@@ -40,12 +40,20 @@ int Bureaucrat::getGrade() const
 /* Decrementing because 1 is the highest grade*/
 void Bureaucrat::incrementGrade()
 {
+    if(grade <= 1)
+    {
+		throw GradeTooHighException();
+	}
     grade--;
 }
 
 /* Ading because 150 is the lowest grade*/
 void Bureaucrat::decrementGrade()
 {
+    if(grade >= 150)
+    {
+		throw GradeTooLowException();
+	}
     grade++;
 }
 
