@@ -8,7 +8,7 @@ int main()
 		std::cout << Rick << std::endl;
 		Rick.decrementGrade();
 		std::cout << Rick << std::endl;
-	} catch (const std::exception& e) {
+	} catch (std::exception& e) {
 		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
 	}
 
@@ -19,7 +19,7 @@ int main()
 		std::cout << Morty << std::endl;
 		Morty.incrementGrade();
 		std::cout << Morty << std::endl;
-	} catch (const std::exception& e) {
+	} catch (std::exception& e) {
 		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
 	}
 
@@ -30,7 +30,7 @@ int main()
 		std::cout << Summer << std::endl;
 		Summer.decrementGrade();
 		std::cout << Summer << std::endl;
-	} catch (const std::exception& e) {
+	} catch (std::exception& e) {
 		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
 	}
 
@@ -41,7 +41,7 @@ int main()
 		std::cout << Jerry << std::endl;
 		Jerry.incrementGrade();
 		std::cout << Jerry << std::endl;
-	} catch (const std::exception& e) {
+	} catch (std::exception& e) {
 		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
 	}
 
@@ -52,7 +52,7 @@ int main()
 		std::cout << Homer << std::endl;
 		Homer.incrementGrade();
 		std::cout << Homer << std::endl;
-	} catch (const std::exception& e) {
+	} catch (std::exception& e) {
 		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
 	}
 
@@ -63,7 +63,7 @@ int main()
 		std::cout << Bart << std::endl;
 		Bart.incrementGrade();
 		std::cout << Bart << std::endl;
-	} catch (const std::exception& e) {
+	} catch (std::exception& e) {
 		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
 	}
     return (0);
