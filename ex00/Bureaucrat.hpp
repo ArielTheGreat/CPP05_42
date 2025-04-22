@@ -9,7 +9,8 @@ class Bureaucrat
         const std::string name;
         int grade;
     public:
-        std::string getName();
+        const std::string getName() const;
+        int getGrade() const;
         Bureaucrat();
         Bureaucrat(std::string name, int grade);
         ~Bureaucrat();
@@ -25,9 +26,10 @@ class Bureaucrat
             public:
                 const char* what() const noexcept override;
         };
-        int getGrade();
         void incrementGrade();
         void decrementGrade();
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif

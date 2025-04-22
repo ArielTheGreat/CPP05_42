@@ -1,4 +1,5 @@
 #include "./Bureaucrat.hpp"
+#include <iostream>
 
 Bureaucrat::Bureaucrat() : name("Undefined"), grade(150) {}
 
@@ -26,12 +27,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	return *this;
 }
 
-std::string Bureaucrat::getName()
+const std::string Bureaucrat::getName() const
 {
     return (name);
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
     return (grade);
 }
@@ -56,4 +57,12 @@ const char* Bureaucrat::GradeTooHighException::what() const noexcept
 const char* Bureaucrat::GradeTooLowException::what() const noexcept
 {
     return "Grade given is too low!";
+}
+
+Bureaucrat::~Bureaucrat(){}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
+{
+    os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
+    return (os);
 }
