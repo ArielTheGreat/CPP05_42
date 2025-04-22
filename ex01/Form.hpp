@@ -1,4 +1,5 @@
 #include <string> 
+#include "Bureaucrat.hpp"
 
 class Form
 {
@@ -10,10 +11,11 @@ class Form
     public:
         Form();
         ~Form();
-        const std::string getName();
-        bool getSigned();
-        const int getRequiredGradeSign();
-        const int getRequiredGradeExecute();
+        const std::string getName() const;
+        bool getSigned() const;
+        const int getRequiredGradeSign() const;
+        const int getRequiredGradeExecute() const;
+        void beSigned(const Bureaucrat &bureaucrat);
         class GradeTooHighException : public std::exception
         {
             public:
@@ -26,3 +28,5 @@ class Form
                 const char* what() const noexcept override;
         };
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& form);
