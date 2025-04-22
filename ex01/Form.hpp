@@ -14,4 +14,15 @@ class Form
         bool getSigned();
         const int getRequiredGradeSign();
         const int getRequiredGradeExecute();
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                const char* what() const noexcept override;
+        };
+
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                const char* what() const noexcept override;
+        };
 };
