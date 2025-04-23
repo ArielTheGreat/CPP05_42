@@ -10,6 +10,7 @@ class Form
 	    const int requiredGradeToExecute;
     public:
         Form();
+        Form(std::string const &name, int const &signGrade, int const &execGrade);
         ~Form();
         const std::string getName() const;
         bool getSigned() const;

@@ -1,70 +1,59 @@
 # include "Bureaucrat.hpp"
+# include "Form.hpp"
 # include <iostream>
 
 int main()
 {
-    try {
-		Bureaucrat Rick("Rick", 150);
-		std::cout << Rick << std::endl;
-		Rick.decrementGrade();
-		std::cout << Rick << std::endl;
-	} catch (std::exception& e) {
-		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
+    /* Create a form with grade too high */
+	{
+		try
+		{
+			Form form0("A99", 0, 5);
+			std::cout << form0 << std::endl;
+		}
+		catch(std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		
 	}
 
-	std::cout << "--------------" << std::endl;
+	std::cout << "\n --------------------- \n\n";
 
-	try {
-		Bureaucrat Morty("Morty", 1);
-		std::cout << Morty << std::endl;
-		Morty.incrementGrade();
-		std::cout << Morty << std::endl;
-	} catch (std::exception& e) {
-		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
+	/* Create form and sign it without exceptions */
+	{
+		try
+		{
+			Bureaucrat mike("Mike", 15);
+			Form form("B58", 20, 45);
+			std::cout << mike << std::endl;
+			std::cout << form << std::endl;
+			mike.signForm(form);
+			std::cout << form << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
+	
+	std::cout << "\n --------------------- \n\n";
 
-	std::cout << "--------------" << std::endl;
-
-	try {
-		Bureaucrat Summer("Summer", 149);
-		std::cout << Summer << std::endl;
-		Summer.decrementGrade();
-		std::cout << Summer << std::endl;
-	} catch (std::exception& e) {
-		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
+	/* Create form and try to sign it but the grade is not enough */
+	{
+		try
+		{
+			Bureaucrat jon("Jon", 35);
+			Form form2("C_303", 20, 45);
+			std::cout << jon << std::endl;
+			std::cout << form2 << std::endl;
+			jon.signForm(form2);
+			std::cout << form2 << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
-
-	std::cout << "--------------" << std::endl;
-
-	try {
-		Bureaucrat Jerry("Jerry", 149);
-		std::cout << Jerry << std::endl;
-		Jerry.incrementGrade();
-		std::cout << Jerry << std::endl;
-	} catch (std::exception& e) {
-		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
-	}
-
-	std::cout << "--------------" << std::endl;
-
-	try {
-		Bureaucrat Homer("Homer", 0);
-		std::cout << Homer << std::endl;
-		Homer.incrementGrade();
-		std::cout << Homer << std::endl;
-	} catch (std::exception& e) {
-		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
-	}
-
-	std::cout << "--------------" << std::endl;
-
-	try {
-		Bureaucrat Bart("Bart", 100000);
-		std::cout << Bart << std::endl;
-		Bart.incrementGrade();
-		std::cout << Bart << std::endl;
-	} catch (std::exception& e) {
-		std::cerr << "EXCEPTION ERROR: " << e.what() << std::endl;
-	}
-    return (0);
+	return (0);
 }

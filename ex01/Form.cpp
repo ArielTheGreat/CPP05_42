@@ -23,7 +23,17 @@ const int Form::getRequiredGradeExecute() const
 
 Form::Form() : name("Undefined"), isSigned(false), requiredGradeToSign(75), requiredGradeToExecute(10) {}
 
-
+Form::Form(std::string const &name, int const &signGrade, int const &execGrade) : name(name), requiredGradeToSign(signGrade), requiredGradeToExecute(execGrade), isSigned(false)
+{
+    if (requiredGradeToSign < 1)
+		throw (Form::GradeTooHighException());
+	else if (requiredGradeToSign > 150)
+		throw (Form::GradeTooLowException());
+	if (requiredGradeToExecute < 1)
+		throw (Form::GradeTooHighException());
+	else if (requiredGradeToExecute > 150)
+		throw (Form::GradeTooLowException());
+}
 
 Form::~Form(){}
 
