@@ -65,3 +65,14 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
     }
     isSigned = true;
 }
+
+Form::Form(const Form& other) : name(other.getName()), isSigned(other.getSigned()), requiredGradeToSign(other.getRequiredGradeSign()), requiredGradeToExecute(other.getRequiredGradeExecute())
+{}
+
+Form& Form::operator=(const Form& other)
+{
+    if(this != &other){
+        isSigned = other.getSigned();
+	}
+	return *this;
+}
