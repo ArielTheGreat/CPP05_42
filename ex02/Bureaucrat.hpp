@@ -2,7 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <string>
-class Form;
+class AForm;
 
 class Bureaucrat
 {
