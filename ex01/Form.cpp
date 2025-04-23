@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 
 const std::string Form::getName() const
@@ -11,19 +12,19 @@ bool Form::getSigned() const
     return (isSigned);
 }
 
-const int Form::getRequiredGradeSign() const
+int Form::getRequiredGradeSign() const
 {
     return (requiredGradeToSign);
 }
 
-const int Form::getRequiredGradeExecute() const
+int Form::getRequiredGradeExecute() const
 {
     return (requiredGradeToExecute);
 }
 
 Form::Form() : name("Undefined"), isSigned(false), requiredGradeToSign(75), requiredGradeToExecute(10) {}
 
-Form::Form(std::string const &name, int const &signGrade, int const &execGrade) : name(name), requiredGradeToSign(signGrade), requiredGradeToExecute(execGrade), isSigned(false)
+Form::Form(std::string const &name, int const &signGrade, int const &execGrade) : name(name), isSigned(false), requiredGradeToSign(signGrade), requiredGradeToExecute(execGrade)
 {
     if (requiredGradeToSign < 1)
 		throw (Form::GradeTooHighException());
@@ -37,12 +38,12 @@ Form::Form(std::string const &name, int const &signGrade, int const &execGrade) 
 
 Form::~Form(){}
 
-const char* Form::GradeTooHighException::exception::what() const
+const char* Form::GradeTooHighException::what() const noexcept
 {
     return "Form error: Grade too high!";
 }
 
-const char* Form::GradeTooLowException::exception::what() const
+const char* Form::GradeTooLowException::what() const noexcept
 {
     return "Form error: Grade too low!";
 }
