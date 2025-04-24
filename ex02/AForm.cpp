@@ -22,9 +22,9 @@ int AForm::getRequiredGradeExecute() const
     return (requiredGradeToExecute);
 }
 
-AForm::Form() : name("Undefined"), isSigned(false), requiredGradeToSign(75), requiredGradeToExecute(10) {}
+AForm::AForm() : name("Undefined"), isSigned(false), requiredGradeToSign(75), requiredGradeToExecute(10) {}
 
-AForm::Form(std::string const &name, int const &signGrade, int const &execGrade) : name(name), isSigned(false), requiredGradeToSign(signGrade), requiredGradeToExecute(execGrade)
+AForm::AForm(std::string const &name, int const &signGrade, int const &execGrade) : name(name), isSigned(false), requiredGradeToSign(signGrade), requiredGradeToExecute(execGrade)
 {
     if (requiredGradeToSign < 1)
 		throw (AForm::GradeTooHighException());
@@ -36,7 +36,7 @@ AForm::Form(std::string const &name, int const &signGrade, int const &execGrade)
 		throw (AForm::GradeTooLowException());
 }
 
-AForm::~Form(){}
+AForm::~AForm(){}
 
 const char* AForm::GradeTooHighException::what() const noexcept
 {
