@@ -4,7 +4,7 @@
 #include "AForm.hpp"
 #include <string>
 
-class ShrubberyCreationForm : AForm
+class ShrubberyCreationForm : public AForm
 {
     ShrubberyCreationForm(std::string &target);
 };

@@ -5,7 +5,7 @@
 #include "Bureaucrat.hpp"
 #include <string>
 
-class PresidentialPardonForm : AForm
+class PresidentialPardonForm : public AForm
 {
     private:
         std::string	_target;

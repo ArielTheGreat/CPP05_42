@@ -1,5 +1,5 @@
 #include "PresidentialPardonForm.hpp"
-
+#include <iostream>
 PresidentialPardonForm::PresidentialPardonForm(void)
 {
 	_target = "default";
@@ -41,7 +41,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 
 std::ostream	&operator<<(std::ostream &out, PresidentialPardonForm const &src)
 {
-	out << src.getName() << " is " << (src.getIsSigned() ? "" : "not ") << "signed." << std::endl;
+	out << src.getName() << " is " << (src.getSigned() ? "" : "not ") << "signed." << std::endl;
 	return (out);
 }
 

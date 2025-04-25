@@ -12,6 +12,29 @@ bool AForm::getSigned() const
     return (isSigned);
 }
 
+AForm::AForm(const AForm &src) :
+	name(src.name), requiredGradeToExecute(src.requiredGradeToExecute), requiredGradeToSign(src.requiredGradeToSign), isSigned(src.isSigned) { }
+
+AForm &AForm::operator=(const AForm &rhs)
+{
+	if (this != &rhs)
+		this->isSigned = rhs.isSigned;
+	return (*this);
+}
+
+const char	*AForm::UnsignedFormException::what() const throw()
+{
+	return ("Form is not signed");
+}
+
+void	AForm::checkRequirements(Bureaucrat const &bureaucrat) const
+{
+	if (bureaucrat.getGrade() > this->requiredGradeToExecute)
+		throw GradeTooLowException();
+	if (!this->isSigned)
+		throw UnsignedFormException();
+}
+
 int AForm::getRequiredGradeSign() const
 {
     return (requiredGradeToSign);
