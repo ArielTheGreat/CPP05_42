@@ -13,7 +13,7 @@ bool AForm::getSigned() const
 }
 
 AForm::AForm(const AForm &src) :
-	name(src.name), requiredGradeToExecute(src.requiredGradeToExecute), requiredGradeToSign(src.requiredGradeToSign), isSigned(src.isSigned) { }
+	name(src.name), isSigned(src.isSigned), requiredGradeToSign(src.requiredGradeToSign), requiredGradeToExecute(src.requiredGradeToExecute){ }
 
 AForm &AForm::operator=(const AForm &rhs)
 {
